@@ -1,0 +1,60 @@
+<% title "Server" %>
+
+<p>
+  <strong>Status:</strong>
+  <%= @server.status %>
+</p>
+<p>
+  <strong>Place:</strong>
+  <%= @server.place %>
+</p>
+<p>
+  <strong>Name:</strong>
+  <%= @server.name %>
+</p>
+<p>
+  <strong>Model:</strong>
+  <%= @server.model %>
+</p>
+<p>
+  <strong>Features:</strong>
+  <%= @server.features %>
+</p>
+<p>
+  <strong>Serial Number:</strong>
+  <%= @server.serial_number %>
+</p>
+<p>
+  <strong>Date Adq:</strong>
+  <%= @server.date_adq %>
+</p>
+<p>
+  <strong>Ip:</strong>
+  <%= @server.ip %>
+</p>
+<p>
+  <strong>Dir Ilo:</strong>
+  <%= @server.dir_ilo %>
+</p>
+<p>
+  <strong>Hard Disks:</strong>
+  <%= @server.hard_disks %>
+</p>
+<p>
+  <strong>User:</strong>
+  <%= @server.user %>
+</p>
+<p>
+  <strong>Os:</strong>
+  <%= @server.os %>
+</p>
+<p>
+  <strong>Lic Ilo:</strong>
+  <%= @server.lic_ilo %>
+</p>
+
+<p>
+  <%= link_to "Edit", edit_server_path(@server) %> |
+  <%= link_to "Destroy", @server, :confirm => 'Are you sure?', :method => :delete %> |
+  <%= link_to "View All", servers_path %>
+</p>

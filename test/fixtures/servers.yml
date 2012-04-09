@@ -1,0 +1,29 @@
+one:
+  status: false
+  place: MyString
+  name: MyString
+  model: MyString
+  features: MyText
+  serial_number: MyString
+  date_adq: 2012-04-09
+  ip: MyString
+  dir_ilo: MyString
+  hard_disks: 1
+  user: MyString
+  os: MyString
+  lic_ilo: MyString
+
+two:
+  status: false
+  place: MyString
+  name: MyString
+  model: MyString
+  features: MyText
+  serial_number: MyString
+  date_adq: 2012-04-09
+  ip: MyString
+  dir_ilo: MyString
+  hard_disks: 1
+  user: MyString
+  os: MyString
+  lic_ilo: MyString
