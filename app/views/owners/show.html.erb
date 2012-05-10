@@ -1,0 +1,5 @@
+<fieldset id="listado_de_servidores_pars" class="">
+	<legend>Listado de servidores de <%= @owner.name %></legend>
+	
+	<%= render 'servers/servers', :servers => @owner.servers %>
+</fieldset>

@@ -1,60 +1,43 @@
-<% title "Server" %>
+<%- model_class = @server.class -%>
+<h1><%=t '.title', :default => model_class.model_name.human %></h1>
 
-<p>
-  <strong>Status:</strong>
-  <%= @server.status %>
-</p>
-<p>
-  <strong>Place:</strong>
-  <%= @server.place %>
-</p>
-<p>
-  <strong>Name:</strong>
-  <%= @server.name %>
-</p>
-<p>
-  <strong>Model:</strong>
-  <%= @server.model %>
-</p>
-<p>
-  <strong>Features:</strong>
-  <%= @server.features %>
-</p>
-<p>
-  <strong>Serial Number:</strong>
-  <%= @server.serial_number %>
-</p>
-<p>
-  <strong>Date Adq:</strong>
-  <%= @server.date_adq %>
-</p>
-<p>
-  <strong>Ip:</strong>
-  <%= @server.ip %>
-</p>
-<p>
-  <strong>Dir Ilo:</strong>
-  <%= @server.dir_ilo %>
-</p>
-<p>
-  <strong>Hard Disks:</strong>
-  <%= @server.hard_disks %>
-</p>
-<p>
-  <strong>User:</strong>
-  <%= @server.user %>
-</p>
-<p>
-  <strong>Os:</strong>
-  <%= @server.os %>
-</p>
-<p>
-  <strong>Lic Ilo:</strong>
-  <%= @server.lic_ilo %>
-</p>
+<dl class="dl-horizontal">
+  <dt><strong><%= model_class.human_attribute_name(:status) %>:</strong></dt>
+  <dd><%= @server.status %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:place) %>:</strong></dt>
+  <dd><%= @server.place %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:name) %>:</strong></dt>
+  <dd><%= @server.name %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:model) %>:</strong></dt>
+  <dd><%= @server.model %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:features) %>:</strong></dt>
+  <dd><%= @server.features %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:serial_number) %>:</strong></dt>
+  <dd><%= @server.serial_number %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:date_adq) %>:</strong></dt>
+  <dd><%= @server.date_adq %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:ip) %>:</strong></dt>
+  <dd><%= @server.ip %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:dir_ilo) %>:</strong></dt>
+  <dd><%= @server.dir_ilo %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:hard_disks) %>:</strong></dt>
+  <dd><%= @server.hard_disks %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:user) %>:</strong></dt>
+  <dd><%= @server.user %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:os) %>:</strong></dt>
+  <dd><%= @server.os %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:lic_ilo) %>:</strong></dt>
+  <dd><%= @server.lic_ilo %></dd>
+</dl>
 
-<p>
-  <%= link_to "Edit", edit_server_path(@server) %> |
-  <%= link_to "Destroy", @server, :confirm => 'Are you sure?', :method => :delete %> |
-  <%= link_to "View All", servers_path %>
-</p>
+<div class="form-actions">
+  <%= link_to t('.back', :default => t("helpers.links.back")),
+              servers_path, :class => 'btn'  %>
+  <%= link_to t('.edit', :default => t("helpers.links.edit")),
+              edit_server_path(@server), :class => 'btn' %>
+  <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
+              server_path(@server),
+              :method => 'delete',
+              :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')),
+              :class => 'btn btn-danger' %>
+</div>

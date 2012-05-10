@@ -2,8 +2,9 @@ class ServersController < ApplicationController
   
  before_filter :authenticate_user!
 
-def index
-    @servers = Server.all
+  def index
+    @active_servers = Server.active
+    @inactive_servers = Server.inactive
   end
 
   def show
@@ -17,7 +18,7 @@ def index
   def create
     @server = Server.new(params[:server])
     if @server.save
-      redirect_to @server, :notice => "Successfully created server."
+      redirect_to servers_path, :notice => "Successfully created server."
     else
       render :action => 'new'
     end
@@ -30,7 +31,7 @@ def index
   def update
     @server = Server.find(params[:id])
     if @server.update_attributes(params[:server])
-      redirect_to @server, :notice  => "Successfully updated server."
+      redirect_to servers_path, :notice  => "Successfully updated server."
     else
       render :action => 'edit'
     end

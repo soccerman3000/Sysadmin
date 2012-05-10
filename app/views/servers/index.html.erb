@@ -1,41 +1,17 @@
-<% title "Servers" %>
-
-<table>
-  <tr>
-    <th>Status</th>
-    <th>Place</th>
-    <th>Name</th>
-    <th>Model</th>
-    <th>Features</th>
-    <th>Serial Number</th>
-    <th>Date Adq</th>
-    <th>Ip</th>
-    <th>Dir Ilo</th>
-    <th>Hard Disks</th>
-    <th>User</th>
-    <th>Os</th>
-    <th>Lic Ilo</th>
-  </tr>
-  <% for server in @servers %>
-    <tr>
-      <td><%= server.status %></td>
-      <td><%= server.place %></td>
-      <td><%= server.name %></td>
-      <td><%= server.model %></td>
-      <td><%= server.features %></td>
-      <td><%= server.serial_number %></td>
-      <td><%= server.date_adq %></td>
-      <td><%= server.ip %></td>
-      <td><%= server.dir_ilo %></td>
-      <td><%= server.hard_disks %></td>
-      <td><%= server.user %></td>
-      <td><%= server.os %></td>
-      <td><%= server.lic_ilo %></td>
-      <td><%= link_to "Show", server %></td>
-      <td><%= link_to "Edit", edit_server_path(server) %></td>
-      <td><%= button_to "Destroy", server, :confirm => 'Are you sure?', :method => :delete %></td>
-    </tr>
-  <% end %>
-</table>
-
-<p><%= link_to "New Server", new_server_path %></p>
+<div class="row">
+	<fieldset>
+		<legend>Listado de servidores Activos</legend>
+		<%= render 'servers', :servers => @active_servers %>
+	</fieldset>
+	<br />
+	<fieldset>
+		<legend>Listado de servidores Inactivos</legend>
+		<%= render 'servers', :servers => @inactive_servers %>
+	</fieldset>
+	
+	<br />
+	<%= link_to "Nuevo Servidor",
+	            new_server_path,
+	            :class => 'btn btn-primary' %>
+	
+</div>

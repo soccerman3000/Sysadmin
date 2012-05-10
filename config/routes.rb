@@ -1,9 +1,12 @@
 Sysadmin::Application.routes.draw do
 
+
+
   devise_for :users
 
   root :to => "servers#index"
   resources :servers
+  resources :owners
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

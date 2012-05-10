@@ -1,56 +1,24 @@
-<%= form_for @server do |f| %>
-  <%= f.error_messages %>
-  <p>
-    <%= f.label :status %><br />
-    <%= f.check_box :status %>
-  </p>
-  <p>
-    <%= f.label :place %><br />
-    <%= f.text_field :place %>
-  </p>
-  <p>
-    <%= f.label :name %><br />
-    <%= f.text_field :name %>
-  </p>
-  <p>
-    <%= f.label :model %><br />
-    <%= f.text_field :model %>
-  </p>
-  <p>
-    <%= f.label :features %><br />
-    <%= f.text_area :features %>
-  </p>
-  <p>
-    <%= f.label :serial_number %><br />
-    <%= f.text_field :serial_number %>
-  </p>
-  <p>
-    <%= f.label :date_adq %><br />
-    <%= f.date_select :date_adq %>
-  </p>
-  <p>
-    <%= f.label :ip %><br />
-    <%= f.text_field :ip %>
-  </p>
-  <p>
-    <%= f.label :dir_ilo %><br />
-    <%= f.text_field :dir_ilo %>
-  </p>
-  <p>
-    <%= f.label :hard_disks %><br />
-    <%= f.number_field :hard_disks %>
-  </p>
-  <p>
-    <%= f.label :user %><br />
-    <%= f.text_field :user %>
-  </p>
-  <p>
-    <%= f.label :os %><br />
-    <%= f.text_field :os %>
-  </p>
-  <p>
-    <%= f.label :lic_ilo %><br />
-    <%= f.text_field :lic_ilo %>
-  </p>
-  <p><%= f.submit %></p>
+<%= simple_form_for @server, :html => { :class => 'well' } do |f| %>
+	<fieldset id="" class="">
+		<%= yield(:legend) %>
+	</fieldset>
+	<%= f.input :status, collection: [["Activo", true], ["Inactivo", false]], as: :radio %>
+	<%= f.input :place, :label => 'Lugar de residencia' %>
+	<%= f.input :name, :label => 'Nombre' %>
+	<%= f.input :model, :label => 'Modelo' %>
+	<%= f.input :features, :label => 'Caracteristicas (procesador y memoria)' %>
+	<%= f.input :hard_disks, :label => 'Discos' %>
+	<%= f.input :serial_number, :label => 'Número de serie' %>
+	<%= f.input :date_adq, :label => 'Fecha de adquisión' %>
+	<%= f.input :ip, :label => 'Dirección IP' %>
+	<%= f.input :dir_ilo, :label => 'Dirección ILO' %>
+	<%= f.input :user, :label => 'Usuario' %>
+	<%= f.input :os, :label => 'Sistema Operativo' %>
+	<%= f.input :lic_ilo, :label => 'Licencia ILO' %>
+	<%= f.input :owner_tokens, :input_html => {:id => "owner_tokens", "data-pre" => @server.owners.map(&:attributes).to_json} %>
+  <div class="form-actions">
+    <%= f.submit nil, :class => 'btn btn-primary' %>
+    <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+                servers_path, :class => 'btn' %>
+  </div>
 <% end %>

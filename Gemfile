@@ -1,14 +1,14 @@
 source 'https://rubygems.org'
 
 gem 'rails', '3.2.3'
+gem "twitter-bootstrap-rails", :git => "https://github.com/seyhunak/twitter-bootstrap-rails.git"
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
 gem 'sqlite3'
 gem 'devise'
-
-gem 'nifty-generators', :group => :development
+gem 'simple_form'
 
 # Gems used only for assets and not required
 # in production environments by default.
@@ -37,6 +37,6 @@ gem 'jquery-rails'
 # gem 'capistrano'
 
 # To use debugger
-# gem 'ruby-debug19', :require => 'ruby-debug'
+gem 'ruby-debug19', :require => 'ruby-debug'
 
 gem "mocha", :group => :test

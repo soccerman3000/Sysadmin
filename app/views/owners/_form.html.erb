@@ -1,0 +1,10 @@
+<%= simple_form_for(@owner) do |f| %>
+	<fieldset>
+		<%= yield(:legend) %>
+	</fieldset>
+	<%= f.input :name %>
+	<%= f.input :ext %>
+	<%= f.input :phone %>
+	<%= f.input :email %>
+	<%= f.submit "Guardar", :class => "btn btn-primary" %>
+<% end %>

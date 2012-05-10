@@ -1,0 +1,50 @@
+<table class="table table-striped table-bordered">
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Lugar de residencia</th>
+      <th>Nombre</th>
+      <th>Modelo</th>
+      <th>Caracteristicas</th>
+      <th>Número de serie</th>
+      <th>Fecha de adquisición</th>
+      <th>Dirección IP</th>
+      <th>Dirección ILO</th>
+      <th>Discos duros</th>
+      <th>Usuario</th>
+      <th>Sistema Operativo</th>
+      <th>Licencia ILO</th>
+	  <th>Dueños</th>
+      <th>Acciones</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% servers.each do |server| %>
+      <tr>
+        <td><%= server.id %></td>
+        <td><%= server.place %></td>
+        <td><%= server.name %></td>
+        <td><%= server.model %></td>
+        <td><%= server.features %></td>
+        <td><%= server.serial_number %></td>
+        <td><%= server.date_adq %></td>
+        <td><%= server.ip %></td>
+        <td><%= server.dir_ilo %></td>
+        <td><%= server.hard_disks %></td>
+        <td><%= server.user %></td>
+        <td><%= server.os %></td>
+        <td><%= server.lic_ilo %></td>
+		<td><%= server.owners.map(&:name).to_sentence %></td>
+        <td>
+          <%= link_to t('.edit', :default => t("helpers.links.edit")),
+                      edit_server_path(server), :class => 'btn btn-mini' %>
+          <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
+                      server_path(server),
+                      :method => :delete,
+                      :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')),
+                      :class => 'btn btn-mini btn-danger' %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

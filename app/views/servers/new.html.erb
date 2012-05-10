@@ -1,5 +1,4 @@
-<% title "New Server" %>
-
-<%= render 'form' %>
-
-<p><%= link_to "Back to List", servers_path %></p>
+<%= content_for :legend do %>
+	<legend>Nuevo Servidor</legend>
+<% end %>
+<%= render :partial => 'form' %>

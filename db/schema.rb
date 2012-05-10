@@ -11,14 +11,31 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120409063159) do
+ActiveRecord::Schema.define(:version => 20120510061905) do
+
+  create_table "owners", :force => true do |t|
+    t.string   "name"
+    t.string   "ext"
+    t.string   "phone"
+    t.string   "email"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  create_table "ownerships", :force => true do |t|
+    t.integer  "owner_id"
+    t.integer  "server_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
 
   create_table "servers", :force => true do |t|
-    t.boolean  "status"
+    t.boolean  "status",        :default => true
     t.string   "place"
     t.string   "name"
     t.string   "model"
     t.text     "features"
+    t.text     "disks"
     t.string   "serial_number"
     t.date     "date_adq"
     t.string   "ip"
@@ -27,8 +44,8 @@ ActiveRecord::Schema.define(:version => 20120409063159) do
     t.string   "user"
     t.string   "os"
     t.string   "lic_ilo"
-    t.datetime "created_at",    :null => false
-    t.datetime "updated_at",    :null => false
+    t.datetime "created_at",                      :null => false
+    t.datetime "updated_at",                      :null => false
   end
 
   create_table "users", :force => true do |t|
