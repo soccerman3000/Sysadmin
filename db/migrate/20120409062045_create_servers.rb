@@ -1,7 +1,7 @@
 class CreateServers < ActiveRecord::Migration
   def self.up
     create_table :servers do |t|
-      t.boolean :status, :default => 1
+      t.boolean :status, :default => true
       t.string :place
       t.string :name
       t.string :model
