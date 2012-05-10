@@ -5,8 +5,6 @@ gem "twitter-bootstrap-rails", :git => "https://github.com/seyhunak/twitter-boot
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
-
-gem 'sqlite3'
 gem 'devise'
 gem 'simple_form'
 
@@ -22,7 +20,17 @@ group :assets do
   gem 'uglifier', '>= 1.0.3'
 end
 
+group :development do
+	gem 'sqlite3'
+end
+
 gem 'jquery-rails'
+
+group :production do
+	gem 'thin'
+	gem 'pg'
+	gem 'therubyracer'
+end
 
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
